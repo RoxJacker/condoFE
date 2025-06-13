@@ -54,7 +54,14 @@ const formatearFecha = (fecha) => {
 onMounted(() => {
   obtenerMultas()
   setInterval(obtenerMultas, 5000)
+
+  setTimeout(() => {
+    const ids = multas.value.map(m => m.id)
+    localStorage.setItem('multasVistas', JSON.stringify(ids))
+  }, 1000)
 })
+
+
 </script>
 <style scoped>
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
